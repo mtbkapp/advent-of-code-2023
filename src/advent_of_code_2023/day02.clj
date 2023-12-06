@@ -54,14 +54,6 @@ Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green")
        (<= (get game "green" 0) (get q "green" 0))
        (<= (get game "blue" 0) (get q "blue" 0))))
 
-(defn filter-possible 
-  [q input]
-  (into []
-        (comp (map extract)
-              (map game-max)
-              (filter (partial possible? q)))
-        input))
-
 (defn part1
   [input q]
   (transduce (comp (map extract)
